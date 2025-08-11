@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@theme {
+	--font-work-sans: 'Work Sans', sans-serif;
+	--font-sans: 'Lexend Deca', sans-serif;
+}
