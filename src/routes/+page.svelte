@@ -16,6 +16,8 @@
 	import educations from '$lib/data/education.json'
 	import certifications from '$lib/data/certifications.json'
 	import { languages, backend, frontend, tools } from '$lib/data/knowledge.json'
+
+	export const prerender = true
 </script>
 
 <div>
