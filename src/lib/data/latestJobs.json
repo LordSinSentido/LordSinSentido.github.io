@@ -1,0 +1,25 @@
+[
+	{
+		"job": "Software Developer",
+		"modality": "Full-time",
+		"where": "Oracle de México S.A de C.V.",
+		"startingDate": "08-2023",
+		"tasks": [
+			"Collaborated with cross-functional teams to develop new features and resolve bugs in internal applications.",
+			"Engineered and implemented Jenkins pipelines with Groovy to automate the connection of microservices.",
+			"Designed, developed, and maintained internal microservices and web servers to support company operations."
+		]
+	},
+	{
+		"job": "Web and Mobile Developer",
+		"where": "Logística Reyes",
+		"startingDate": "10-2022",
+		"endingDate": "08-2023",
+		"modality": "Internship & full-time",
+		"tasks": [
+			"Directed the development of a mobile application for tracking parcels with React Native.",
+			"Engineered and maintained a robust backend system using Laravel and MariaDB.",
+			"Contributed to the improvement of a web tool designed to streamline all internal processes."
+		]
+	}
+]

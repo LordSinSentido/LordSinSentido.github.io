@@ -1,0 +1,17 @@
+{
+	"description": "I am a backend and frontend developer with three years of experience. My skills include programming in Java and JavaScript, as well as creating pipelines and scripts with Jenkins and Groovy. I am seeking new opportunities to learn and build solutions that can help everyone.",
+	"firstName": "Miguel",
+	"lastName": "Sosa Guardado",
+	"degree": "Software Engineer",
+	"hometown": "Guadalajara, México",
+	"externalLinks": [
+		{
+			"title": "LinkedIn",
+			"url": "https://www.linkedin.com/in/misosa"
+		},
+		{
+			"title": "GitHub",
+			"url": "http://github.com/LordSinSentido"
+		}
+	]
+}
