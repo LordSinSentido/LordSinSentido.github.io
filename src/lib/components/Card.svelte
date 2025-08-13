@@ -3,14 +3,11 @@
 		LucideBuilding,
 		LucideCalendar,
 		LucideFileBadge,
-		LucideMapPin,
-		LucideMapPinned,
 		LucideSchool
 	} from '@lucide/svelte'
 
 	let {
 		title,
-		location,
 		school,
 		company,
 		issuer,
@@ -21,7 +18,6 @@
 		tasks
 	}: {
 		title: String
-		location?: String
 		school?: String
 		company?: String
 		issuer?: String
@@ -32,6 +28,7 @@
 		tasks?: String[]
 	} = $props()
 
+	const iconSize = 12
 	const localeDate: Intl.LocalesArgument = 'en-US'
 	const dateOptions: Intl.DateTimeFormatOptions = {
 		month: 'long',
@@ -59,39 +56,47 @@
 </script>
 
 <div class="flex flex-col gap-1">
-	<h4>{title}</h4>
-	<div class="flex flex-wrap flex-col md:flex-row gap-x-2">
-		{#if company}
-			<div class="flex items-baseline gap-1">
-				<LucideBuilding class="stroke-zinc-900 dark:stroke-zinc-300" size="10" />
-				<p>{company}{modality ? ` (${modality})` : ''}</p>
+	<div class="">
+		<div class="flex-no-wrap flex flex-col md:flex-row">
+			<h4 class="grow">{title}</h4>
+			<div class="flex flex-col">
+				{#if datesStrings()}
+					<div class="flex items-baseline justify-start gap-1 md:justify-end">
+						<LucideCalendar class="stroke-zinc-900 dark:stroke-zinc-300" size="10" />
+						<p>{datesStrings()}</p>
+					</div>
+				{/if}
 			</div>
-		{/if}
-		{#if school}
-			<div class="flex items-baseline gap-1">
-				<LucideSchool class="stroke-zinc-900 dark:stroke-zinc-300" size="10" />
-				<p>{school}</p>
-			</div>
-		{/if}
-		{#if issuer}
-			<div class="flex items-baseline gap-1">
-				<LucideFileBadge class="stroke-zinc-900 dark:stroke-zinc-300" size="10" />
-				<p>{issuer}</p>
-			</div>
-		{/if}
-		{#if datesStrings()}
-			<div class="flex items-baseline gap-1">
-				<LucideCalendar class="stroke-zinc-900 dark:stroke-zinc-300" size="10" />
-				<p>{datesStrings()}</p>
-			</div>
-		{/if}
+		</div>
+		<div>
+			{#if company}
+				<div class="flex items-baseline gap-1">
+					<LucideBuilding class="stroke-zinc-900 dark:stroke-zinc-300" size={iconSize} />
+					<p>{company}{modality ? ` (${modality})` : ''}</p>
+				</div>
+			{/if}
+			{#if school}
+				<div class="flex items-baseline gap-1">
+					<LucideSchool class="stroke-zinc-900 dark:stroke-zinc-300" size={iconSize} />
+					<p>{school}</p>
+				</div>
+			{/if}
+			{#if issuer}
+				<div class="flex items-baseline gap-1">
+					<LucideFileBadge class="stroke-zinc-900 dark:stroke-zinc-300" size={iconSize} />
+					<p>{issuer}</p>
+				</div>
+			{/if}
+		</div>
 	</div>
 	{#if description}
 		<p>{description}</p>
 	{/if}
 	{#if tasks}
-		{#each tasks as task}
-			<p><span>&mdash;</span>&nbsp;{task}</p>
-		{/each}
+		<div>
+			{#each tasks as task}
+				<p><span>&mdash;</span>&nbsp;{task}</p>
+			{/each}
+		</div>
 	{/if}
 </div>

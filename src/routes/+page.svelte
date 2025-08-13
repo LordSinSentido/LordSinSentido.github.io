@@ -20,7 +20,7 @@
 
 <div>
 	<Header />
-	<main class="flex flex-col items-center gap-4 md:px-10 px-4 py-4">
+	<main class="flex flex-col items-center gap-3 md:px-10 px-6 py-3">
 		<Section icon={LucideUser} title="About me">
 			<p>
 				{aboutMe.description}
@@ -92,10 +92,10 @@
 	}
 
 	:global(p) {
-		@apply text-justify text-sm font-light hyphens-auto text-zinc-900/90 dark:text-zinc-300/90;
+		@apply text-justify text-base font-light hyphens-auto text-zinc-900/90 dark:text-zinc-300/90;
 	}
 
 	:global(a) {
-		@apply font-light text-sm underline decoration-dotted underline-offset-3;
+		@apply font-light text-base underline decoration-dotted underline-offset-3;
 	}
 </style>

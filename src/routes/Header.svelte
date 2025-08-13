@@ -3,14 +3,14 @@
 	import { LucideGithub, LucideHouse, LucideLinkedin } from '@lucide/svelte'
 </script>
 
-<header class="flex flex-col items-center justify-center gap-3 bg-linear-to-t from-zinc-100/0 to-zinc-500/35 pt-5 dark:from-zinc-900/0 dark:to-zinc-700/50">
-	<div class="flex items-center justify-center gap-4">
+<header class="flex flex-col items-center justify-center pt-3 gap-2 bg-linear-to-t from-zinc-100/0 to-zinc-500/35 dark:from-zinc-900/0 dark:to-zinc-700/50">
+	<div class="flex flex-col sm:flex-row items-center justify-center sm:gap-4 gap-2">
 		<img
-			class="size-18 rounded-md"
+			class="size-14 rounded-md"
 			src="https://media.licdn.com/dms/image/v2/D4E03AQGdAZ2YbwtCkw/profile-displayphoto-scale_400_400/B4EZhE2kcbHoAg-/0/1753501813791?e=1756339200&v=beta&t=UOBMsi1WoI77gGnT4rhLYFY24yyDVlWChXJ-hLFRZl8"
 			alt="Profile avatar"
 		/>
-		<div>
+		<div class="text-center md:text-justify">
 			<h1 class="text-2xl font-bold">{aboutMe.firstName} {aboutMe.lastName}</h1>
 			<h2 class="text-lg font-normal">{aboutMe.degree}</h2>
 		</div>
