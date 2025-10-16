@@ -1,0 +1,22 @@
+{
+  "name": "Miguel Sosa",
+  "degree": "Software Engineer",
+  "hero": "Worked along companies to provide them solutions with my services as a software engineer.",
+  "description": "With 3 years of experience delivering backend and frontend solutions, I'm specializing in REST API servers, microservices, and Jenkins pipelines.",
+  "links": [
+    {
+      "title": "LinkedIn",
+      "url": "https://www.linkedin.com/in/misosa"
+    },
+    {
+      "title": "GitHub",
+      "url": "https://www.github.com/LordSinSentido"
+    }
+  ],
+  "skills": [
+    "Adept at testing and maintain code and troubleshooting critical issues.",
+    "Design new features to enhance performance and user experience.",
+    "Meticulous in detail, and committed to delivering high-quality code.",
+    "Strong collaborator with different teams around the world."
+  ]
+}

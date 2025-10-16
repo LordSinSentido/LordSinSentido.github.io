@@ -1,0 +1,291 @@
+@import url('https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&family=Lexend+Deca:wght@100..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-light-primary: rgb(102 85 142);
+  --color-light-surface-tint: rgb(102 85 142);
+  --color-light-on-primary: rgb(255 255 255);
+  --color-light-primary-container: rgb(234 221 255);
+  --color-light-on-primary-container: rgb(78 61 117);
+  --color-light-secondary: rgb(98 91 112);
+  --color-light-on-secondary: rgb(255 255 255);
+  --color-light-secondary-container: rgb(233 222 248);
+  --color-light-on-secondary-container: rgb(74 67 88);
+  --color-light-tertiary: rgb(126 82 95);
+  --color-light-on-tertiary: rgb(255 255 255);
+  --color-light-tertiary-container: rgb(255 217 226);
+  --color-light-on-tertiary-container: rgb(100 59 71);
+  --color-light-error: rgb(186 26 26);
+  --color-light-on-error: rgb(255 255 255);
+  --color-light-error-container: rgb(255 218 214);
+  --color-light-on-error-container: rgb(147 0 10);
+  --color-light-background: rgb(254 247 255);
+  --color-light-on-background: rgb(29 27 32);
+  --color-light-surface: rgb(254 247 255);
+  --color-light-on-surface: rgb(29 27 32);
+  --color-light-surface-variant: rgb(231 224 235);
+  --color-light-on-surface-variant: rgb(73 69 78);
+  --color-light-outline: rgb(122 117 127);
+  --color-light-outline-variant: rgb(203 196 207);
+  --color-light-shadow: rgb(0 0 0);
+  --color-light-scrim: rgb(0 0 0);
+  --color-light-inverse-surface: rgb(50 47 53);
+  --color-light-inverse-on-surface: rgb(245 239 247);
+  --color-light-inverse-primary: rgb(209 188 253);
+  --color-light-primary-fixed: rgb(234 221 255);
+  --color-light-on-primary-fixed: rgb(34 15 70);
+  --color-light-primary-fixed-dim: rgb(209 188 253);
+  --color-light-on-primary-fixed-variant: rgb(78 61 117);
+  --color-light-secondary-fixed: rgb(233 222 248);
+  --color-light-on-secondary-fixed: rgb(30 25 43);
+  --color-light-secondary-fixed-dim: rgb(204 194 219);
+  --color-light-on-secondary-fixed-variant: rgb(74 67 88);
+  --color-light-tertiary-fixed: rgb(255 217 226);
+  --color-light-on-tertiary-fixed: rgb(49 16 28);
+  --color-light-tertiary-fixed-dim: rgb(240 184 198);
+  --color-light-on-tertiary-fixed-variant: rgb(100 59 71);
+  --color-light-surface-dim: rgb(222 216 224);
+  --color-light-surface-bright: rgb(254 247 255);
+  --color-light-surface-container-lowest: rgb(255 255 255);
+  --color-light-surface-container-low: rgb(248 241 250);
+  --color-light-surface-container: rgb(242 236 244);
+  --color-light-surface-container-high: rgb(236 230 238);
+  --color-light-surface-container-highest: rgb(231 224 232);
+
+  --color-dark-primary: rgb(209 188 253);
+  --color-dark-surface-tint: rgb(209 188 253);
+  --color-dark-on-primary: rgb(55 38 93);
+  --color-dark-primary-container: rgb(78 61 117);
+  --color-dark-on-primary-container: rgb(234 221 255);
+  --color-dark-secondary: rgb(204 194 219);
+  --color-dark-on-secondary: rgb(51 45 65);
+  --color-dark-secondary-container: rgb(74 67 88);
+  --color-dark-on-secondary-container: rgb(233 222 248);
+  --color-dark-tertiary: rgb(240 184 198);
+  --color-dark-on-tertiary: rgb(74 37 49);
+  --color-dark-tertiary-container: rgb(100 59 71);
+  --color-dark-on-tertiary-container: rgb(255 217 226);
+  --color-dark-error: rgb(255 180 171);
+  --color-dark-on-error: rgb(105 0 5);
+  --color-dark-error-container: rgb(147 0 10);
+  --color-dark-on-error-container: rgb(255 218 214);
+  --color-dark-background: rgb(20 18 24);
+  --color-dark-on-background: rgb(231 224 232);
+  --color-dark-surface: rgb(20 18 24);
+  --color-dark-on-surface: rgb(231 224 232);
+  --color-dark-surface-variant: rgb(73 69 78);
+  --color-dark-on-surface-variant: rgb(203 196 207);
+  --color-dark-outline: rgb(148 143 153);
+  --color-dark-outline-variant: rgb(73 69 78);
+  --color-dark-shadow: rgb(0 0 0);
+  --color-dark-scrim: rgb(0 0 0);
+  --color-dark-inverse-surface: rgb(231 224 232);
+  --color-dark-inverse-on-surface: rgb(50 47 53);
+  --color-dark-inverse-primary: rgb(102 85 142);
+  --color-dark-primary-fixed: rgb(234 221 255);
+  --color-dark-on-primary-fixed: rgb(34 15 70);
+  --color-dark-primary-fixed-dim: rgb(209 188 253);
+  --color-dark-on-primary-fixed-variant: rgb(78 61 117);
+  --color-dark-secondary-fixed: rgb(233 222 248);
+  --color-dark-on-secondary-fixed: rgb(30 25 43);
+  --color-dark-secondary-fixed-dim: rgb(204 194 219);
+  --color-dark-on-secondary-fixed-variant: rgb(74 67 88);
+  --color-dark-tertiary-fixed: rgb(255 217 226);
+  --color-dark-on-tertiary-fixed: rgb(49 16 28);
+  --color-dark-tertiary-fixed-dim: rgb(240 184 198);
+  --color-dark-on-tertiary-fixed-variant: rgb(100 59 71);
+  --color-dark-surface-dim: rgb(20 18 24);
+  --color-dark-surface-bright: rgb(59 56 62);
+  --color-dark-surface-container-lowest: rgb(15 13 19);
+  --color-dark-surface-container-low: rgb(29 27 32);
+  --color-dark-surface-container: rgb(33 31 36);
+  --color-dark-surface-container-high: rgb(43 41 47);
+  --color-dark-surface-container-highest: rgb(54 52 58);
+  
+  --font-sans: "Lexend Deca", sans-serif;
+  --font-mono: "Cascadia Code", sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-light-background text-light-on-background;
+    @variant dark {
+      @apply bg-dark-background text-dark-on-background;
+    }
+  }
+
+  header {
+    @apply h-[90dvh];
+  }
+
+  p, li {
+    @apply text-lg font-extralight tracking-wide leading-[1.25] hyphens-auto;
+  }
+
+  h1 {
+    @apply text-6xl font-mono tracking-normal capitalize;
+  }
+
+  h2 {
+    @apply text-2xl font-extralight tracking-wide uppercase;
+  }
+
+  h3 {
+    @apply text-4xl font-mono tracking-normal uppercase mb-5 leading-[1.25];
+  }
+
+  .text-title {
+    @apply font-light text-4xl leading-[1.25] tracking-normal mb-2;
+  }
+
+  .section-padding {
+    @apply md:p-10 p-4;
+  }
+
+  .navbar {
+    @apply fixed top-0 right-0 z-50 m-4 flex md:flex-row flex-col gap-2 items-end;
+  }
+
+  nav {
+    @apply flex gap-2 md:flex-row flex-col items-end font-light capitalize;
+  }
+
+  .navbar > button {
+    @apply cursor-pointer select-none bg-light-primary-container text-light-on-primary-container md:hidden flex-none;
+    @variant dark {
+      @apply bg-dark-primary-container text-dark-on-primary-container;
+    }
+  }
+
+  nav > a {
+    @apply cursor-pointer select-none bg-light-primary-container text-light-on-primary-container py-2 px-4 rounded-full;
+    @variant dark {
+      @apply bg-dark-primary-container text-dark-on-primary-container;
+    }
+    @variant hover {
+      @apply bg-light-primary text-light-on-primary;
+      @variant dark {
+        @apply bg-dark-primary text-dark-on-primary;
+      }
+    }
+    @variant active {
+      @apply bg-light-primary;
+      @variant dark {
+        @apply bg-dark-primary;
+      }
+    }
+  }
+
+  .anchors {
+    @apply text-light-tertiary underline decoration-2 decoration-dotted;
+    @variant dark {
+      @apply text-dark-tertiary;
+    }
+  }
+
+  .profile-picture{
+    @apply rounded-xl;
+  }
+
+  .button-primary {
+    @apply cursor-pointer select-none rounded-lg bg-light-primary text-light-on-primary py-1.5 px-3 text-lg transition-all duration-100 ease-in-out;
+    @variant dark {
+      @apply bg-dark-primary text-dark-on-primary;
+    }
+    @variant hover {
+      @apply bg-light-primary-container text-light-on-primary-container;
+      @variant dark {
+        @apply bg-dark-primary-container text-dark-on-primary-container;
+      }
+    }
+    @variant active{
+      @apply bg-light-primary-container;
+      @variant dark {
+        @apply bg-dark-primary-container;
+      }
+    }
+  }
+
+  .button-secondary {
+    @apply cursor-pointer select-none rounded-lg text-light-secondary py-1.5 px-3 text-lg transition-all duration-100 ease-in-out;
+    @variant dark {
+      @apply text-dark-secondary;
+    }
+    @variant hover {
+      @apply bg-light-surface-container-high;
+      @variant dark {
+        @apply bg-dark-surface-container-high;
+      }
+    }
+    @variant active {
+      @apply bg-light-surface-container-high;
+      @variant dark {
+        @apply bg-dark-surface-container-high;
+      }
+    }
+  }
+
+  .button-image {
+    @apply cursor-pointer select-none rounded-lg text-light-secondary p-5 transition-all duration-100 ease-in-out;
+    @variant dark {
+      @apply text-dark-secondary;
+    }
+    @variant hover {
+      @apply bg-light-surface-container-high;
+      @variant dark {
+        @apply bg-dark-surface-container-high;
+      }
+    }
+    @variant active {
+      @apply bg-light-surface-container-high;
+      @variant dark {
+        @apply bg-dark-surface-container-high;
+      }
+    }
+  }
+
+  .button-active {
+    @apply bg-light-surface-container-high;
+    @variant dark {
+      @apply bg-dark-surface-container-high;
+    }
+  }
+
+  .button-icon {
+    @apply size-4;
+  }
+
+  .dialog {
+    @apply bg-light-surface-dim/75 backdrop-blur-md fixed inset-0 p-10 z-50 md:overflow-scroll flex justify-center items-start;
+    @variant dark {
+      @apply bg-dark-surface-dim/75; 
+    }
+  }
+
+  .card {
+    @apply flex h-full flex-col gap-10 drop-shadow-sm bg-light-surface-container-lowest rounded-xl p-5;
+    @variant dark {
+      @apply bg-dark-surface-container-lowest;
+    }
+  }
+
+  .badge-item {
+    @apply bg-light-tertiary-container text-light-on-tertiary-container block py-1.5 px-3 text-base rounded-full;
+    @variant dark {
+      @apply text-dark-on-tertiary-container bg-dark-tertiary-container;
+    }
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
