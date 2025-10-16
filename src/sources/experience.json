@@ -1,0 +1,11 @@
+[
+  {
+    "company": "Oracle",
+    "image": "/oracle.png",
+    "description": "Developed, tested, and maintained REST API servers, microservices, and applications in Java and JavaScript, while creating Groovy-based Jenkins pipelines supporting critical internal processes and end-user software."
+  },
+  {
+    "company": "Logística Reyes",
+    "description": "Led the development of a React Native mobile application for internal processes, and developed and maintained the React-based end-user application and Laravel backend services."
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "name": "SAI-Colomos",
+    "shortDescription": "Degree project",
+    "description": "It consist in a platform (split in two: a mobile application and a main server) planned to improve how the AMBU handles its intern processes helping the people that are working and doing their social service there.",
+    "participation": "I was the PM of the project, creating documentation and planning each step of the development. I also help in creating the UI/UX, planning the backend, and programmed the frontend both from the mobile application and the website.",
+    "languages": ["JavaScript"],
+    "technologies": ["React Native", "Node.js", "Express", "MongoDB"],
+    "repo": "https://github.com/SAI-COLOMOS",
+    "demo": "https://sai-colomos.github.io"
+  },
+  {
+    "name": "My Portfolio",
+    "shortDescription": "Personal project",
+    "description": "Single web page where I list and describe a little more all the projects that I have made or helped to develop. And also include more information about me and my professional skills.",
+    "participation": "I designed and develop this web site from scratch, and decided to use Vite along React and TailwindCSS to create this basic project.",
+    "languages": ["TypeScript"],
+    "technologies": ["Vite", "React", "TailwindCSS"],
+    "repo": "https://github.com/LordSinSentido/LordSinSentido.github.io",
+    "demo": "https://lordsinsentido.github.io"
+  },
+  {
+    "name": "Omedetō",
+    "shortDescription": "Scholar project",
+    "description": "Consist in a web application inspired in a social media where users can post and share their owns cooking recipes.",
+    "participation": "Lead and developed this project from the original idea to the final product.",
+    "languages": ["JavaScript"],
+    "technologies": ["Angular", "Firebase"],
+    "repo": "https://github.com/LordSinSentido/omedeto"
+  },
+  {
+    "name": "Procesamiento de imágenes",
+    "shortDescription": "Scholar project",
+    "description": "In this repo I saved all the practices I made for the image processing class, where we saw different algorithms used to apply filters and detect some patterns, like corners and counting objects.",
+    "technologies": ["MatLab"],
+    "repo": "https://github.com/LordSinSentido/procesamiento-de-imagenes"
+  }
+]
