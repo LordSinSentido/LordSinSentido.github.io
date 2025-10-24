@@ -186,13 +186,6 @@
     @apply size-4;
   }
 
-  .dialog {
-    @apply bg-light-surface-dim/75 backdrop-blur-md fixed inset-0 md:p-10 p-2 z-50 md:overflow-scroll flex justify-center items-start;
-    @variant dark {
-      @apply bg-dark-surface-dim/75;
-    }
-  }
-
   .badge-item {
     @apply bg-light-tertiary-container text-light-on-tertiary-container block py-1.5 px-3 rounded-full;
     @variant dark {
