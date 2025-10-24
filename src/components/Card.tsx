@@ -1,9 +1,10 @@
-import type React from "react"
+import type React from 'react'
+import Container from './Container'
 
 export function Header({
   title,
   description,
-  children,
+  children
 }: {
   title: String
   description?: String
@@ -12,9 +13,9 @@ export function Header({
   return (
     <div className='flex flex-col gap-2'>
       <div>
-        {title && <p className='text-2xl font-light'>{title}</p>}
+        {title && <p className='font-normal'>{title}</p>}
         {description && (
-          <p className='line-clamp-1 font-light text-base'>{description}</p>
+          <p className='line-clamp-1 font-extralight text-sm'>{description}</p>
         )}
       </div>
       {children}
@@ -31,7 +32,7 @@ export function Actions({ children }: { children: React.ReactNode }) {
 }
 
 export function Card({ children }: { children?: React.ReactNode }) {
-  return <div className='card'>{children}</div>
+  return <Container>{children}</Container>
 }
 
 export default { Card, Header, Body, Actions }

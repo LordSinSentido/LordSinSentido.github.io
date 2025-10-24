@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&family=Lexend+Deca:wght@100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap");
 @import "tailwindcss";
 
 @theme {
@@ -101,16 +101,11 @@
   --color-dark-surface-container: rgb(33 31 36);
   --color-dark-surface-container-high: rgb(43 41 47);
   --color-dark-surface-container-highest: rgb(54 52 58);
-  
+
   --font-sans: "Lexend Deca", sans-serif;
-  --font-mono: "Cascadia Code", sans-serif;
 }
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-
   body {
     @apply bg-light-background text-light-on-background;
     @variant dark {
@@ -118,81 +113,13 @@
     }
   }
 
-  header {
-    @apply h-[90dvh];
-  }
-
-  p, li {
-    @apply text-lg font-extralight tracking-wide leading-[1.25] hyphens-auto;
-  }
-
-  h1 {
-    @apply text-6xl font-mono tracking-normal capitalize;
-  }
-
-  h2 {
-    @apply text-2xl font-extralight tracking-wide uppercase;
-  }
-
-  h3 {
-    @apply text-4xl font-mono tracking-normal uppercase mb-5 leading-[1.25];
-  }
-
-  .text-title {
-    @apply font-light text-4xl leading-[1.25] tracking-normal mb-2;
-  }
-
-  .section-padding {
-    @apply md:p-10 p-4;
-  }
-
-  .navbar {
-    @apply fixed top-0 right-0 z-50 m-4 flex md:flex-row flex-col gap-2 items-end;
-  }
-
-  nav {
-    @apply flex gap-2 md:flex-row flex-col items-end font-light capitalize;
-  }
-
-  .navbar > button {
-    @apply cursor-pointer select-none bg-light-primary-container text-light-on-primary-container md:hidden flex-none;
-    @variant dark {
-      @apply bg-dark-primary-container text-dark-on-primary-container;
-    }
-  }
-
-  nav > a {
-    @apply cursor-pointer select-none bg-light-primary-container text-light-on-primary-container py-2 px-4 rounded-full;
-    @variant dark {
-      @apply bg-dark-primary-container text-dark-on-primary-container;
-    }
-    @variant hover {
-      @apply bg-light-primary text-light-on-primary;
-      @variant dark {
-        @apply bg-dark-primary text-dark-on-primary;
-      }
-    }
-    @variant active {
-      @apply bg-light-primary;
-      @variant dark {
-        @apply bg-dark-primary;
-      }
-    }
-  }
-
-  .anchors {
-    @apply text-light-tertiary underline decoration-2 decoration-dotted;
-    @variant dark {
-      @apply text-dark-tertiary;
-    }
-  }
-
-  .profile-picture{
-    @apply rounded-xl;
+  p,
+  li {
+    @apply text-base font-extralight tracking-wide leading-[1.25];
   }
 
   .button-primary {
-    @apply cursor-pointer select-none rounded-lg bg-light-primary text-light-on-primary py-1.5 px-3 text-lg transition-all duration-100 ease-in-out;
+    @apply cursor-pointer select-none rounded-lg bg-light-primary text-light-on-primary py-1.5 px-3 text-base transition-all duration-100 ease-in-out;
     @variant dark {
       @apply bg-dark-primary text-dark-on-primary;
     }
@@ -202,7 +129,7 @@
         @apply bg-dark-primary-container text-dark-on-primary-container;
       }
     }
-    @variant active{
+    @variant active {
       @apply bg-light-primary-container;
       @variant dark {
         @apply bg-dark-primary-container;
@@ -211,7 +138,7 @@
   }
 
   .button-secondary {
-    @apply cursor-pointer select-none rounded-lg text-light-secondary py-1.5 px-3 text-lg transition-all duration-100 ease-in-out;
+    @apply cursor-pointer select-none rounded-lg text-light-secondary py-1.5 px-3 text-base transition-all duration-100 ease-in-out;
     @variant dark {
       @apply text-dark-secondary;
     }
@@ -260,16 +187,9 @@
   }
 
   .dialog {
-    @apply bg-light-surface-dim/75 backdrop-blur-md fixed inset-0 p-10 z-50 md:overflow-scroll flex justify-center items-start;
+    @apply bg-light-surface-dim/75 backdrop-blur-md fixed inset-0 md:p-10 p-2 z-50 md:overflow-scroll flex justify-center items-start;
     @variant dark {
-      @apply bg-dark-surface-dim/75; 
-    }
-  }
-
-  .card {
-    @apply flex h-full flex-col gap-10 drop-shadow-sm bg-light-surface-container-lowest rounded-xl p-5;
-    @variant dark {
-      @apply bg-dark-surface-container-lowest;
+      @apply bg-dark-surface-dim/75;
     }
   }
 
@@ -284,7 +204,7 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-  
+
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }

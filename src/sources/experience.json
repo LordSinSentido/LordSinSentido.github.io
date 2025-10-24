@@ -2,10 +2,23 @@
   {
     "company": "Oracle",
     "image": "/oracle.png",
-    "description": "Developed, tested, and maintained REST API servers, microservices, and applications in Java and JavaScript, while creating Groovy-based Jenkins pipelines supporting critical internal processes and end-user software."
+    "location": "Zapopan, Jalisco",
+    "description": "Developed, tested, and maintained REST API servers, microservices, and applications in Java and JavaScript, while creating Groovy-based Jenkins pipelines supporting critical internal processes and end-user software.",
+    "goals": [
+      "Optimized the main workflow by removing a non-critical step and converting it into a standalone tool.",
+      "Reduced infrastructure overhead by eliminating the need to create one extra POD for each request, consolidating the logic into the existing pipeline.",
+      "Increased the software reliability through the implementation of comprehensive unit test coverage.",
+      "Resolved ~90 tickets (bugs, research tasks, and new feature requests) in a year, improving overall system stability and delivery speed."
+    ]
   },
   {
     "company": "Logística Reyes",
-    "description": "Led the development of a React Native mobile application for internal processes, and developed and maintained the React-based end-user application and Laravel backend services."
+    "location": "Guadalajara, Jalisco",
+    "description": "Led the development of a React Native mobile application for internal processes, and developed and maintained the React-based end-user application and Laravel backend services.",
+    "goals": [
+      "Improved the parcel handling efficiency by creating an in-app module to scan parcel IDs instead of entering them manually.",
+      "Streamlined parcel guide generation by centralizing management into a single system, increasing usability and reducing operational complexity.",
+      "Redesigned five key components of the web dashboard using clean code principles, improving performance, reliability, and maintainability."
+    ]
   }
 ]

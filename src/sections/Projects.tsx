@@ -1,48 +1,44 @@
-import { useState } from "react"
-import Button from "../components/Button"
-import Card from "../components/Card"
-import Dialog from "../components/Dialog"
-import Link from "../components/Link"
-import ProjectsJson from "../sources/projects.json"
-import Badge from "../components/Badge"
-import type { ProjectInterface } from "../types"
+import React, { useState } from 'react'
+import Button from '../components/Button'
+import Card from '../components/Card'
+import Dialog from '../components/Dialog'
+import Link from '../components/Link'
+import ProjectsJson from '../sources/projects.json'
+import Badge from '../components/Badge'
+import type { ProjectInterface } from '../types'
+import Section from '../components/Section'
+import Carousel from '../components/Carousel'
+import { Proportions } from 'lucide-react'
 
 export default function Projects() {
   const projects: ProjectInterface[] = ProjectsJson as ProjectInterface[]
 
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState<boolean>(false)
   const [actualState, setActualState] = useState<ProjectInterface | null>()
 
+  const items: React.ReactElement[] = projects.map((item) => (
+    <Card.Card>
+      <Card.Header title={item.name} description={item.shortDescription} />
+      <Card.Body>
+        <p className='line-clamp-4'>{item.description}</p>
+      </Card.Body>
+      <Card.Actions>
+        {item.repo && <Link title='View repo' href={item.repo.toString()} />}
+        <Button.Primary
+          title='Show more'
+          onClick={() => {
+            setActualState(item)
+            setIsOpen(true)
+          }}
+        />
+      </Card.Actions>
+    </Card.Card>
+  ))
+
   return (
-    <section id='projects' className='section-padding'>
-      <h3>My projects</h3>
-      <div className='flex gap-5 overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide pb-1 md:px-10 px-4 md:-mx-10 -mx-4'>
-        {projects.map((element) => (
-          <div className='flex-shrink-0 w-[80dvw] max-w-120 snap-start md:scroll-ml-10 scroll-ml-4'>
-            <Card.Card>
-              <Card.Header
-                title={element.name}
-                description={element.shortDescription}
-              />
-              <Card.Body>
-                <p className='line-clamp-4'>{element.description}</p>
-              </Card.Body>
-              <Card.Actions>
-                {element.repo && (
-                  <Link title='View repo' href={element.repo.toString()} />
-                )}
-                <Button.Primary
-                  title='Show more'
-                  onClick={() => {
-                    setActualState(element)
-                    setIsOpen(true)
-                  }}
-                />
-              </Card.Actions>
-            </Card.Card>
-          </div>
-        ))}
-      </div>
+    <Section.Section id='projects'>
+      <Section.Title title='Projects' icon={<Proportions />} />
+      <Carousel items={items} />
 
       <Dialog
         isOpen={isOpen}
@@ -51,7 +47,7 @@ export default function Projects() {
       >
         <Card.Card>
           <Card.Header
-            title={actualState?.name || ""}
+            title={actualState?.name || ''}
             description={actualState?.shortDescription}
           ></Card.Header>
           <Card.Body>
@@ -60,7 +56,7 @@ export default function Projects() {
             <Badge
               badges={[
                 ...(actualState?.languages ?? []),
-                ...(actualState?.technologies ?? []),
+                ...(actualState?.technologies ?? [])
               ]}
             />
           </Card.Body>
@@ -77,6 +73,6 @@ export default function Projects() {
           </Card.Actions>
         </Card.Card>
       </Dialog>
-    </section>
+    </Section.Section>
   )
 }
