@@ -115,7 +115,7 @@
 
   p,
   li {
-    @apply text-base font-extralight tracking-wide leading-[1.25];
+    @apply text-base font-light tracking-wide leading-[1.25];
   }
 
   .button-primary {
@@ -194,7 +194,7 @@
   }
 
   .badge-item {
-    @apply bg-light-tertiary-container text-light-on-tertiary-container block py-1.5 px-3 text-base rounded-full;
+    @apply bg-light-tertiary-container text-light-on-tertiary-container block py-1.5 px-3 rounded-full;
     @variant dark {
       @apply text-dark-on-tertiary-container bg-dark-tertiary-container;
     }
