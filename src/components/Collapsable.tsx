@@ -1,10 +1,10 @@
-import type React from "react"
-import { useState } from "react"
-import Button from "./Button"
+import type React from 'react'
+import { useState } from 'react'
+import Button from './Button'
 
 export function Body({
   isOpen,
-  children,
+  children
 }: {
   isOpen: boolean
   children: React.ReactElement
@@ -13,8 +13,8 @@ export function Body({
     <div
       className={`grid transition-all duration-300 ease-in-out ${
         isOpen
-          ? "grid-rows-[1fr] opacity-100"
-          : "grid-rows-[0fr] invisible opacity-0"
+          ? 'grid-rows-[1fr] opacity-100 mb-2'
+          : 'grid-rows-[0fr] invisible opacity-0'
       }`}
     >
       <div className='overflow-hidden'>{children}</div>
@@ -22,29 +22,18 @@ export function Body({
   )
 }
 
-export function Header({
-  title,
-  image,
-  children,
-}: {
-  title: string
-  image?: string
-  children?: React.ReactElement
-}) {
+export function Collapsable({ children }: { children?: React.ReactElement }) {
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   return (
-    <div
-      className={`flex flex-col h-full ${isOpen && "bg-light-surface-container-low dark:bg-dark-surface-container-low"} rounded-lg`}
-    >
-      <Button.Image
-        image={image}
-        alt={title}
+    <div className={`flex flex-col h-full rounded-lg`}>
+      {children && <Body isOpen={isOpen}>{children}</Body>}
+      <Button.Secondary
+        title={isOpen ? 'Show less' : 'Show more'}
         onClick={() => setIsOpen(!isOpen)}
       />
-      {children && <Body isOpen={isOpen}>{children}</Body>}
     </div>
   )
 }
 
-export default { Header, Body }
+export default { Collapsable, Body }

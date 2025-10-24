@@ -1,44 +1,78 @@
-import { Github, Linkedin } from "lucide-react";
+import { Github, Linkedin, MessagesSquare } from 'lucide-react'
 
-import MyInfo from "../sources/myInformation.json";
-import Link from "../components/Link";
+import MyInfo from '../sources/myInformation.json'
+import Link from '../components/Link'
+import Section from '../components/Section'
+import Container from '../components/Container'
+import List from '../components/List'
 
 export default function Contact() {
-  type iconKeys = keyof typeof listIcon;
+  type iconKeys = keyof typeof listIcon
   const listIcon = {
     LinkedIn: <Linkedin />,
-    GitHub: <Github />,
-  };
+    GitHub: <Github />
+  }
 
   return (
-    <section id="contact" className="section-padding grid grid-cols-12">
-      <h3 className="col-span-12 lg:col-span-3">Contact me</h3>
-      <div className="col-span-12 lg:col-span-9 grid md:gap-10 gap-5">
-        <div className="">
-          <p className="text-title">Do you need a software engineer?</p>
-          <p>
-            Well, you are lucky. Currently I'm finding new job opportunities,
-            and if you think I can provide, do not hesite and let's get in
-            touch!
-          </p>
-        </div>
-        <div className="">
-          <p className="">You can reach me on these platforms</p>
-          <div className="flex">
-            {MyInfo.links.map((element) => (
-              <Link
-                title={element.title}
-                href={element.url}
-                icon={
-                  element.title
-                    ? listIcon[element.title as iconKeys]
-                    : undefined
-                }
+    <Section.Section id='contact'>
+      <Section.Title title='Contact' icon={<MessagesSquare />} />
+      <Section.Body>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
+          <Container>
+            <div>
+              <p className='font-normal'>Availability</p>
+              <p>
+                Looking for a Software Engineer? You’re in luck! I’m currently
+                exploring new opportunities — don’t hesitate to get in touch.
+              </p>
+            </div>
+            <div className='grid grid-cols-1 gap-2 sm:gap-0'>
+              <div className='flex sm:flex-row flex-col'>
+                <p className='grow-1 font-light'>Type of work</p>
+                <p>Full-time</p>
+              </div>
+
+              <div className='flex sm:flex-row flex-col'>
+                <p className='grow-1 font-light'>Work modality</p>
+                <p>Flexible / On-site</p>
+              </div>
+
+              <div className='flex sm:flex-row flex-col'>
+                <p className='grow-1 font-light'>Availability</p>
+                <p>Immediate</p>
+              </div>
+            </div>
+            <div>
+              <p className='font-normal'>Interesting</p>
+              <List
+                items={[
+                  'Backend and microservices development.',
+                  'Frontend development using React.',
+                  'Automatization and testing.'
+                ]}
               />
-            ))}
-          </div>
+            </div>
+          </Container>
+
+          <Container>
+            <p>You can contact me through these platforms:</p>
+            <div>
+              {MyInfo.links.map((element, index) => (
+                <Link
+                  title={element.title}
+                  href={element.url}
+                  icon={
+                    element.title
+                      ? listIcon[element.title as iconKeys]
+                      : undefined
+                  }
+                  key={`Link #${index} ${element.title}`}
+                />
+              ))}
+            </div>
+          </Container>
         </div>
-      </div>
-    </section>
-  );
+      </Section.Body>
+    </Section.Section>
+  )
 }

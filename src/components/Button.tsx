@@ -1,9 +1,9 @@
-import type { LucideIcon } from "lucide-react"
-import React from "react"
+import type { LucideIcon } from 'lucide-react'
+import React from 'react'
 
 export function Primary({
   title,
-  onClick,
+  onClick
 }: {
   title: string
   onClick: () => void
@@ -17,17 +17,22 @@ export function Primary({
 
 export function Secondary({
   title,
-  onClick,
+  icon,
+  isActive,
+  onClick
 }: {
   title: string
+  icon?: React.ReactElement<React.ComponentProps<LucideIcon>>
+  isActive?: boolean
   onClick: () => void
 }) {
   return (
     <button
       type='button'
       onClick={() => onClick()}
-      className='button-secondary'
+      className={`button-secondary flex items-center gap-2 ${isActive ? 'button-active' : ''}`}
     >
+      {icon && React.cloneElement(icon, { className: 'button-icon' })}
       {title}
     </button>
   )
@@ -35,10 +40,12 @@ export function Secondary({
 
 export function Icon({
   children,
+  isActive,
   onClick,
-  size,
+  size
 }: {
   children: React.ReactElement<React.ComponentProps<LucideIcon>>
+  isActive?: boolean
   onClick: () => void
   size?: string
 }) {
@@ -46,10 +53,10 @@ export function Icon({
     <button
       type='button'
       onClick={() => onClick()}
-      className='button-secondary rounded-full p-2'
+      className={`button-secondary ${isActive ? 'button-active' : ''} rounded-full p-2`}
     >
       {React.cloneElement(children, {
-        className: size ? `size-${size}` : `button-icon`,
+        className: size ? `size-${size}` : `button-icon`
       })}
     </button>
   )
@@ -59,7 +66,7 @@ export function Image({
   image,
   alt,
   onClick,
-  isActive,
+  isActive
 }: {
   image?: string
   alt?: string
@@ -70,7 +77,7 @@ export function Image({
     <button
       type='button'
       onClick={() => onClick()}
-      className={`button-image w-50 h-15 flex justify-center items-center ${isActive ? "button-active" : ""}`}
+      className={`button-image w-50 h-15 flex justify-center items-center ${isActive ? 'button-active' : ''}`}
     >
       {image ? (
         <img

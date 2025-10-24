@@ -1,0 +1,6 @@
+{
+  "tools": ["Docker", "Bash", "Jenkins", "Figma", "Kubernetes", "Git", "Cypress"],
+  "languages": ["JavaScript", "TypeScript", "Java", "Groovy", "SQL", "Python"],
+  "frontend": ["React", "Svelte", "TailwindCSS"],
+  "backend": ["Node.JS", "Express", "Spring Boot", "Oracle DB"]
+}

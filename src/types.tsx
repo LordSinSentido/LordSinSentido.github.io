@@ -10,7 +10,9 @@ export interface MyInformationInterface {
 export interface ExperienceInterface {
   company: string
   image?: string
+  location: string
   description: string
+  goals?: string[]
 }
 
 export interface ProjectInterface {
@@ -22,4 +24,11 @@ export interface ProjectInterface {
   technologies?: String[]
   repo?: String
   demo?: String
+}
+
+export interface SkillsInterface {
+  tools: string[]
+  frontend: []
+  backend: string[]
+  languages: string[]
 }
