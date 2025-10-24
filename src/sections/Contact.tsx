@@ -43,12 +43,12 @@ export default function Contact() {
               </div>
             </div>
             <div>
-              <p className='font-normal'>Interesting</p>
+              <p className='font-normal'>Interests</p>
               <List
                 items={[
-                  'Backend and microservices development.',
-                  'Frontend development using React.',
-                  'Automatization and testing.'
+                  'Backend and microservices development',
+                  'Frontend development with React',
+                  'Automation and testing'
                 ]}
               />
             </div>
