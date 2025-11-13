@@ -23,10 +23,12 @@ export default function Dialog({
   if (!isOpen) return null
   return (
     <div
-      className='bg-light-surface-dim/75 dark:bg-dark-surface-dim/75 backdrop-blur-xs fixed inset-0 md:p-10 p-2 z-50 flex justify-center items-start overflow-scroll'
+      className='bg-linear-to-b to-10% from-light-background to-light-surface-dim/65 dark:from-dark-background dark:to-dark-surface-dim/65
+      backdrop-blur-xs fixed inset-0 z-50 flex justify-center items-end overflow-y-scroll overscroll-none'
       onClick={() => onClose()}
     >
       <div className='max-w-3xl' onClick={(e) => e.stopPropagation()}>
+        <div className='min-h-[25dvh]' />
         {children}
       </div>
     </div>

@@ -106,7 +106,7 @@
 }
 
 @layer base {
-  body {
+  html {
     @apply bg-light-background text-light-on-background;
     @variant dark {
       @apply bg-dark-background text-dark-on-background;

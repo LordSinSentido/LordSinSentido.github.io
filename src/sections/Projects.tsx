@@ -9,6 +9,7 @@ import type { ProjectInterface } from '../types'
 import Section from '../components/Section'
 import Carousel from '../components/Carousel'
 import { Proportions } from 'lucide-react'
+import Page from '../components/Page'
 
 export default function Projects() {
   const projects: ProjectInterface[] = ProjectsJson as ProjectInterface[]
@@ -45,7 +46,7 @@ export default function Projects() {
         onClose={() => setIsOpen(false)}
         title='Mi Dialog'
       >
-        <Card.Card>
+        <Page>
           <Card.Header
             title={actualState?.name || ''}
             description={actualState?.shortDescription}
@@ -71,7 +72,7 @@ export default function Projects() {
             </div>
             <Button.Primary title='Close' onClick={() => setIsOpen(false)} />
           </Card.Actions>
-        </Card.Card>
+        </Page>
       </Dialog>
     </Section.Section>
   )
