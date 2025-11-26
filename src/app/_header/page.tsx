@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import ProfilePicture from '@/public/profile.jpg'
 import Text from '@/components/ui/Text'
 
 export default function Header() {
