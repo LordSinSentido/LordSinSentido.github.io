@@ -12,12 +12,11 @@ import Title from '@/typography/Title'
 import Headline from '@/typography/Headline'
 import type { Information } from '@/schemas/informationSchema'
 import { db } from '@/lib/firebase'
-import type { Modality, Status, Type } from '@/lib/constants'
+import type { Modality, Type } from '@/lib/constants'
 
 export default function Contact() {
   const uid = import.meta.env.VITE_FIREBASE_UID ?? ''
   const [information, setInformation] = useState<Information>({} as Information)
-  const [status, setStatus] = useState<Status>('loading')
 
   const modalityMap: Record<Modality, string> = {
     'full-time': 'Full-time',
@@ -34,16 +33,10 @@ export default function Contact() {
 
   async function load() {
     try {
-      setStatus('loading')
-
       const documentReference = doc(db, 'users', uid)
       const document = await getDoc(documentReference)
       setInformation({ ...document.data() } as Information)
-
-      setStatus('done')
-    } catch (error) {
-      setStatus('failed')
-    }
+    } catch (error) {}
   }
 
   useEffect(() => {
@@ -120,11 +113,6 @@ export default function Contact() {
                   </Text>
                 </div>
               )}
-
-              {/* <div className='flex sm:flex-row flex-col'>
-                <Text className='grow'>Availability</Text>
-                <Text>Immediate</Text>
-              </div> */}
             </div>
             {information.interests && <List items={information.interests} />}
           </Stack>
