@@ -8,7 +8,7 @@ import Navbar from '@/sections/Navbar'
 
 function App() {
   return (
-    <main className='flex items-center justify-center'>
+    <main className='flex items-center justify-center pb-40'>
       <div className='flex flex-col items-center min-h-screen w-full max-w-374 pb-4 md:pb-8'>
         <Navbar />
         <Header />
