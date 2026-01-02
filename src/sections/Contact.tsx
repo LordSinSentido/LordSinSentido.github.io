@@ -74,11 +74,11 @@ export default function Contact() {
               <Headline>Contact platforms</Headline>
               <Text>You can contact me through these platforms:</Text>
               <Stack direction='horizontal'>
-                <Link href='/'>
+                <Link href='https://www.linkedin.com/in/misosa/'>
                   <Linkedin className='size-4' />
                   LinkedIn
                 </Link>
-                <Link href='/'>
+                <Link href='https://github.com/LordSinSentido'>
                   <Github className='size-4' />
                   GitHub
                 </Link>
