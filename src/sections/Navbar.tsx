@@ -32,11 +32,11 @@ export default function Navbar() {
 
   return (
     <>
-      <Link href='#' className='fixed top-2 left-2' target='_self'>
+      <Link href='#' className='fixed top-2 left-2 z-20' target='_self'>
         <Logo className='fill-primary size-6' />
       </Link>
 
-      <nav className='fixed top-2 right-2 z-30'>
+      <nav className='fixed top-2 right-2 z-20'>
         <Stack
           direction='horizontal'
           className='sm:visible sm:flex invisible hidden'
