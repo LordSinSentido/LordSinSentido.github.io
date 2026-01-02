@@ -8,15 +8,16 @@ import Title from '@/typography/Title'
 import Headline from '@/typography/Headline'
 import Subheadline from '@/typography/Subheadline'
 import Card from '@/ui/Card'
-import Drawer from '@/ui/Drawer'
 import Link from '@/ui/Link'
-import Badge from '@/ui/Badge'
 import { Skeleton } from '@/ui/Skeleton'
 import random from '@/lib/random'
 import Issue from '@/ui/Issue'
 import type { Project } from '@/schemas/projectSchema'
 import { db } from '@/lib/firebase'
-import type { Status } from '@/lib/constants'
+import { animationDuration, animationEase, type Status } from '@/lib/constants'
+import Dialog from '@/components/layers/Dialog'
+import { motion } from 'motion/react'
+import Button from '@/components/ui/Button'
 
 export default function Experience() {
   const uid = import.meta.env.VITE_FIREBASE_UID ?? ''
@@ -45,6 +46,40 @@ export default function Experience() {
   useEffect(() => {
     load()
   }, [])
+
+  const ProjectCard = ({ project }: { project: Project }) => {
+    const [open, setOpen] = useState<boolean>(false)
+    const handleDialog = () => setOpen(!open)
+
+    return (
+      <>
+        <motion.div
+          layout
+          className='rounded-xl p-4 bg-surface-container'
+          layoutId={project.id}
+          transition={{ duration: animationDuration, ease: animationEase }}
+        >
+          <Stack gap='4'>
+            <Stack gap='0'>
+              <Headline>{project.title}</Headline>
+              <Subheadline>{project.type}</Subheadline>
+            </Stack>
+
+            <Text className='line-clamp-3'>{project.description}</Text>
+
+            <Stack direction='horizontal' className='justify-end'>
+              {project.repo && <Link href={project.repo}>See repo</Link>}
+
+              <Button buttonType='primary' onClick={handleDialog}>
+                See more
+              </Button>
+            </Stack>
+          </Stack>
+        </motion.div>
+        <Dialog project={project} open={open} handleDialog={handleDialog} />
+      </>
+    )
+  }
 
   const views = {
     loading: (
@@ -81,56 +116,7 @@ export default function Experience() {
     done: (
       <Carousel>
         {projects.map((project) => (
-          <Card>
-            <Stack gap='4'>
-              <Stack gap='0'>
-                <Headline>{project.title}</Headline>
-                <Subheadline>{project.type}</Subheadline>
-              </Stack>
-
-              <Text className='line-clamp-3'>{project.description}</Text>
-
-              <Stack direction='horizontal' className='justify-end'>
-                {project.repo && <Link href={project.repo}>See repo</Link>}
-                <Drawer title='See more'>
-                  <Stack gap='4'>
-                    <Stack gap='0'>
-                      <Headline>{project.title}</Headline>
-                      <Subheadline>{project.type}</Subheadline>
-                    </Stack>
-
-                    {project.description.split(/\n/).map((value, index) => (
-                      <Text key={`${project.id} ${index} paragraph`}>
-                        {value}
-                      </Text>
-                    ))}
-
-                    <Stack direction='horizontal' className='flex-wrap'>
-                      {project.languages?.map((badge) => (
-                        <Badge
-                          title={badge}
-                          key={`${project.id} ${badge} language badge`}
-                        />
-                      ))}
-                      {project.technologies?.map((badge) => (
-                        <Badge
-                          title={badge}
-                          key={`${project.id} ${badge} technology badge`}
-                        />
-                      ))}
-                    </Stack>
-
-                    <Stack direction='horizontal' className='justify-end'>
-                      {project.url && <Link href={project.url}>See demo</Link>}
-                      {project.repo && (
-                        <Link href={project.repo}>See repo</Link>
-                      )}
-                    </Stack>
-                  </Stack>
-                </Drawer>
-              </Stack>
-            </Stack>
-          </Card>
+          <ProjectCard project={project} />
         ))}
       </Carousel>
     ),
