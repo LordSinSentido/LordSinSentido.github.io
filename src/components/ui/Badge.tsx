@@ -1,12 +1,12 @@
 import Text from '@/typography/Text.tsx'
 
-interface Badge {
+interface BadgeProps {
   title: string
 }
 
-export default function Badge({ title }: Badge) {
+export default function Badge({ title }: BadgeProps) {
   return (
-    <div className='block rounded-full bg-tertiary-container text-on-tertiary-container py-1 px-2 cursor-default'>
+    <div className='block rounded-full bg-tertiary text-on-tertiary py-1 px-2 cursor-default'>
       <Text size='sm'>{title}</Text>
     </div>
   )
