@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&family=Playwrite+MX:wght@100..400&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -131,6 +131,7 @@
   --color-surface-container-high: var(--color-surface-container-high);
   --color-surface-container-highest: var(--color-surface-container-highest);
   --font-sans: "Lexend Deca", sans-serif;
+  --font-cursive: "Playwrite MX", cursive;
 }
 
 html {
