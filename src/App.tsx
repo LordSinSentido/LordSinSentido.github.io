@@ -18,7 +18,6 @@ const PageTransition = ({ children }: { children: React.ReactNode }) => (
     animate='animate'
     exit='initial'
     transition={{ duration: animationDuration, ease: animationEase }}
-    className='rounded-xl overflow-hidden'
   >
     {children}
   </motion.div>
@@ -28,9 +27,9 @@ function App() {
   const location = useLocation()
 
   return (
-    <div className='flex flex-col sm:flex-row p-4 gap-4 h-dvh'>
+    <>
       <Navigation />
-      <main className='flex-1 relative rounded-xl overflow-y-scroll h-full max-w-480 pb-10 scrollbar-none scrollbar-hide'>
+      <main className='h-full max-w-480 pb-10 scrollbar-none scrollbar-hide p-4 mt-18'>
         <AnimatePresence mode='wait'>
           <Routes location={location} key={location.pathname}>
             <Route
@@ -68,7 +67,7 @@ function App() {
           </Routes>
         </AnimatePresence>
       </main>
-    </div>
+    </>
   )
 }
 

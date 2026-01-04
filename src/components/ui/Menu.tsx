@@ -11,7 +11,7 @@ export default function Menu({ children }: MenuProps) {
     <motion.ul
       whileHover={{ boxShadow: 'var(--shadow-lg)' }}
       transition={{ ease: animationEase, duration: animationDuration }}
-      className='flex sm:flex-col p-2 gap-2'
+      className='flex p-2 gap-2'
     >
       {children}
     </motion.ul>

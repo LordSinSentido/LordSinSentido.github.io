@@ -8,12 +8,12 @@ interface BubbleProps {
 }
 export default function Bubble({ color, quantity, animate }: BubbleProps) {
   return (
-    <span className='size-4 relative'>
+    <div className='relative size-4 flex-none'>
       {Array.from({ length: quantity ?? 4 }).map((_, index, values) => (
-        <motion.span
-          className={`size-4 ${
+        <motion.div
+          className={`w-full h-full absolute top-0 left-0 ${
             color ?? 'bg-primary'
-          } rounded-full absolute inline-block`}
+          } rounded-full`}
           animate={animate ? 'animate' : 'static'}
           variants={{
             animate: { scale: [0, 1.5, 0.0], opacity: [0, 1, 0, 0] },
@@ -27,6 +27,6 @@ export default function Bubble({ color, quantity, animate }: BubbleProps) {
           }}
         />
       ))}
-    </span>
+    </div>
   )
 }

@@ -8,7 +8,7 @@ export default function Section({ children, className, id }: SectionProps) {
   return (
     <section
       id={id}
-      className={`flex flex-col gap-4 px-4 sm:px-16 lg:px-30 2xl:px-[20%] ${className}`}
+      className={`flex flex-col gap-4 px-0 sm:px-16 lg:px-30 2xl:px-50 ${className}`}
     >
       {children}
     </section>
