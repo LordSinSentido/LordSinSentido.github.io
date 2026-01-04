@@ -30,7 +30,7 @@ function App() {
   return (
     <div className='flex flex-col sm:flex-row p-4 gap-4 h-dvh'>
       <Navigation />
-      <main className='flex-1 relative rounded-xl overflow-y-scroll h-full overscroll-none max-w-480 pb-10'>
+      <main className='flex-1 relative rounded-xl overflow-y-scroll h-full max-w-480 pb-10 scrollbar-none scrollbar-hide'>
         <AnimatePresence mode='wait'>
           <Routes location={location} key={location.pathname}>
             <Route
