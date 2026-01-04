@@ -4,7 +4,7 @@ import { ChevronDown } from 'lucide-react'
 import { useState } from 'react'
 import { animationDuration, animationEase } from '@/lib/constants'
 
-interface Collapsable {
+interface CollapsableProps {
   header: React.ReactNode
   content?: React.ReactNode
   disabled?: boolean
@@ -14,28 +14,44 @@ export default function Collapsable({
   header,
   content,
   disabled
-}: Collapsable) {
-  const [isOpen, setIsOpen] = useState<boolean>(false)
+}: CollapsableProps) {
+  const [open, setOpen] = useState<boolean>(false)
 
   return (
-    <div>
+    <motion.div
+      className={`rounded-xl p-4`}
+      initial='closed'
+      variants={{
+        opened: {
+          backgroundColor: 'var(--color-secondary-container',
+          color: 'var(-on-secondary-container)'
+        },
+        closed: {
+          backgroundColor: 'var(--color-surface-container)',
+          color: 'var(--color-on-surface)'
+        }
+      }}
+      animate={open ? 'opened' : 'closed'}
+      transition={{ duration: animationDuration, ease: animationEase }}
+    >
       <div
         className={`flex items-center w-full ${
           disabled ? '' : 'cursor-pointer'
         }`}
-        onClick={() => setIsOpen(disabled ? false : !isOpen)}
+        onClick={() => setOpen(disabled ? false : !open)}
       >
         <div className='flex-1'>{header}</div>
         <motion.span
           className='flex-none'
-          animate={{ rotate: isOpen ? -180 : 0 }}
+          animate={{ rotate: open ? -180 : 0 }}
           transition={{ duration: animationDuration, ease: animationEase }}
         >
           <ChevronDown />
         </motion.span>
       </div>
+
       <AnimatePresence initial={false}>
-        {isOpen && !disabled && (
+        {open && !disabled && (
           <motion.div
             key='content'
             initial='collapsed'
@@ -53,6 +69,6 @@ export default function Collapsable({
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </motion.div>
   )
 }

@@ -9,16 +9,78 @@ import Button from '@/ui/Button'
 import Link from '@/ui/Link'
 import Badge from '@/ui/Badge'
 import { animationDuration, animationEase } from '@/lib/constants'
+import Overlay from '@/layers/Overlay'
+import Card from '@/layers/Card'
 import type { Project } from '@/schemas/projectSchema'
-import Overlay from './Overlay'
 
 interface DialogProps {
   project: Project
   open: boolean
-  handleDialog: () => void
+  handleDialog: (project?: Project) => void
 }
 
-export default function Dialog({ project, open, handleDialog }: DialogProps) {
+export const ProjectCard = ({ project, open, handleDialog }: DialogProps) => {
+  return (
+    <Card>
+      <Stack>
+        <Stack gap='0'>
+          <Headline>{project.title}</Headline>
+          <Subheadline>{project.type}</Subheadline>
+        </Stack>
+
+        {!open && (
+          <Text className={`${!open && 'line-clamp-3'}`}>
+            {project.description}
+          </Text>
+        )}
+
+        {open &&
+          project.description
+            .split(/\n/)
+            .map((value, index) => (
+              <Text key={`${project.id}-text-${index}`}>{value}</Text>
+            ))}
+
+        {open && (
+          <Stack direction='horizontal' gap='1' className='flex-wrap'>
+            {project.languages?.map((badge) => (
+              <Badge
+                title={badge}
+                key={`${project.id} ${badge} language badge`}
+              />
+            ))}
+            {project.technologies?.map((badge) => (
+              <Badge
+                title={badge}
+                key={`${project.id} ${badge} technology badge`}
+              />
+            ))}
+          </Stack>
+        )}
+
+        <Stack direction='horizontal' gap='2' className='justify-end'>
+          {open && project.url && <Link href={project.url}>See demo</Link>}
+          {project.repo && <Link href={project.repo}>See repo</Link>}
+          {!open && (
+            <Button buttonType='primary' onClick={handleDialog}>
+              See more
+            </Button>
+          )}
+        </Stack>
+      </Stack>
+
+      {open && (
+        <div className='absolute top-2 right-2 p-2'>
+          <Button onClick={handleDialog} aria-label='Cerrar diálogo'>
+            <X className='h-5 w-5' />
+          </Button>
+        </div>
+      )}
+    </Card>
+  )
+}
+
+export const Dialog = ({ project, open, handleDialog }: DialogProps) => {
   useEffect(() => {
     if (open) {
       const prev = document.body.style.overflow
@@ -38,82 +100,26 @@ export default function Dialog({ project, open, handleDialog }: DialogProps) {
       <AnimatePresence>
         {open && (
           <motion.div
-            layout
-            key='DialogContent'
-            className='fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 max-w-lg w-[90vw] max-h-[90dvh] rounded-xl p-4 bg-surface-container overflow-x-scroll scrollbar-none scrollbar-hide'
-            layoutId={project.id}
+            className='fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 max-w-lg w-[90vw] max-h-[90dvh] overflow-x-scroll scrollbar-none scrollbar-hide'
+            initial='closed'
+            animate='opened'
+            exit='closed'
+            variants={{
+              opened: { opacity: 1, translateY: 0, pointerEvents: 'auto' },
+              closed: { opacity: 0, translateY: '1rem', pointerEvents: 'none' }
+            }}
             transition={{ duration: animationDuration, ease: animationEase }}
           >
-            <Stack gap='4'>
-              <Stack gap='0'>
-                <Headline>{project.title}</Headline>
-                <Subheadline>{project.type}</Subheadline>
-              </Stack>
-
-              {project.description.split(/\n/).map((value, index) => (
-                <Text key={`${project.id}-text-${index}`}>{value}</Text>
-              ))}
-
-              {open && (
-                <motion.div
-                  variants={{
-                    opened: { opacity: 1, scaleY: 1 },
-                    closed: { opacity: 0, scaleY: 0 }
-                  }}
-                  initial='closed'
-                  animate='opened'
-                  exit='closed'
-                  transition={{
-                    duration: animationDuration,
-                    ease: animationEase
-                  }}
-                >
-                  <Stack direction='horizontal' className='flex-wrap'>
-                    {project.languages?.map((badge) => (
-                      <Badge
-                        title={badge}
-                        key={`${project.id} ${badge} language badge`}
-                      />
-                    ))}
-                    {project.technologies?.map((badge) => (
-                      <Badge
-                        title={badge}
-                        key={`${project.id} ${badge} technology badge`}
-                      />
-                    ))}
-                  </Stack>
-                </motion.div>
-              )}
-
-              <Stack direction='horizontal' className='justify-end'>
-                {project.url && <Link href={project.url}>See demo</Link>}
-                {project.repo && <Link href={project.repo}>See repo</Link>}
-              </Stack>
-            </Stack>
-
-            {open && (
-              <motion.div
-                className='absolute top-2 right-2 p-2'
-                variants={{
-                  opened: { opacity: 1, scale: 1 },
-                  closed: { opacity: 0, scale: 0 }
-                }}
-                initial='closed'
-                animate='opened'
-                exit='closed'
-                transition={{
-                  duration: animationDuration,
-                  ease: animationEase
-                }}
-              >
-                <Button onClick={handleDialog} aria-label='Cerrar diálogo'>
-                  <X className='h-5 w-5' />
-                </Button>
-              </motion.div>
-            )}
+            <ProjectCard
+              project={project}
+              open={open}
+              handleDialog={handleDialog}
+            />
           </motion.div>
         )}
       </AnimatePresence>
     </>
   )
 }
+
+export default { ProjectCard, Dialog }

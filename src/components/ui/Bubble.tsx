@@ -1,17 +1,19 @@
 import { animationEase } from '@/lib/constants'
 import { motion } from 'motion/react'
 
-interface Bubble {
+interface BubbleProps {
   color?: `bg-${string}` | undefined
   quantity?: number
   animate?: boolean
 }
-export default function Bubble({ color, quantity, animate }: Bubble) {
+export default function Bubble({ color, quantity, animate }: BubbleProps) {
   return (
-    <div>
-      {Array.from({ length: quantity ?? 3 }).map((_, index, values) => (
-        <motion.div
-          className={`size-4 ${color ?? 'bg-primary'} rounded-full absolute`}
+    <span className='size-4 relative'>
+      {Array.from({ length: quantity ?? 4 }).map((_, index, values) => (
+        <motion.span
+          className={`size-4 ${
+            color ?? 'bg-primary'
+          } rounded-full absolute inline-block`}
           animate={animate ? 'animate' : 'static'}
           variants={{
             animate: { scale: [0, 1.5, 0.0], opacity: [0, 1, 0, 0] },
@@ -25,6 +27,6 @@ export default function Bubble({ color, quantity, animate }: Bubble) {
           }}
         />
       ))}
-    </div>
+    </span>
   )
 }

@@ -5,7 +5,7 @@ import { animationDuration, animationEase } from '@/lib/constants'
 
 type ButtonType = 'primary' | 'secondary'
 
-interface ButtonInterface {
+interface ButtonProps {
   buttonType?: ButtonType
   onClick: () => void
   children: React.ReactNode
@@ -17,7 +17,7 @@ export default function Button({
   buttonType = 'secondary',
   onClick,
   className
-}: ButtonInterface) {
+}: ButtonProps) {
   const buttonStyles: Record<ButtonType, string> = {
     primary: buttonPrimary,
     secondary: buttonSecondary
@@ -28,8 +28,8 @@ export default function Button({
       onClick={onClick}
       className={`${buttonBase} ${buttonStyles[buttonType]} ${className}`}
       transition={{ ease: animationEase, duration: animationDuration }}
-      whileTap={{ scale: 0.95 }}
-      whileHover={{ scale: 1.05 }}
+      whileHover={{ opacity: 0.8 }}
+      whileTap={{ opacity: 0.6 }}
     >
       {children}
     </motion.button>

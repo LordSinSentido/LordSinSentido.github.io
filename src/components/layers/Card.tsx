@@ -1,10 +1,10 @@
-interface Card {
+interface CardProps {
   children: React.ReactNode
   classname?: string
   delay?: number
 }
 
-export default function Card({ children, classname }: Card) {
+export default function Card({ children, classname }: CardProps) {
   return (
     <div className={`rounded-xl p-4 bg-surface-container ${classname}`}>
       {children}

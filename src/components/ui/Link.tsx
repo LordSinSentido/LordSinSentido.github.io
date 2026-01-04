@@ -3,7 +3,8 @@ import { buttonBase, buttonSecondary } from '@/ui/ButtonClasses'
 import { animationDuration, animationEase } from '@/lib/constants'
 
 type Target = '_blank' | '_self'
-interface Link {
+
+interface LinkProps {
   href: string
   className?: string
   children: React.ReactNode
@@ -17,7 +18,7 @@ export default function Link({
   className,
   target,
   onClick
-}: Link) {
+}: LinkProps) {
   return (
     <motion.a
       onClick={onClick}
@@ -25,8 +26,8 @@ export default function Link({
       target={target ?? '_blank'}
       className={`${buttonBase} ${buttonSecondary} ${className}`}
       transition={{ ease: animationEase, duration: animationDuration }}
-      whileTap={{ scale: 0.95 }}
-      whileHover={{ scale: 1.05 }}
+      whileHover={{ opacity: 0.8 }}
+      whileTap={{ opacity: 0.6 }}
     >
       {children}
     </motion.a>
