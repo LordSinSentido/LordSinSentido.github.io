@@ -2,7 +2,7 @@ import Stack from '@/layers/Stack'
 import List from '@/ui/List'
 import Quote from '@/typography/Quote'
 import { useEffect } from 'react'
-import { useFirestoreContext } from '@/lib/FirestoreContext'
+import { useFirestoreContext } from '@/context/FirestoreContext'
 import Loading from '@/ui/Loading'
 import Badge from '@/ui/Badge'
 import Section from '@/layers/Section'
@@ -24,7 +24,7 @@ export default function Home() {
   if (information && skills) {
     return (
       <Stack gap='16'>
-        <div className='col-span-2 shadow-sm bg-[url(https://v1a4c4yut32jfys8.public.blob.vercel-storage.com/background.jpg)] bg-cover bg-center'>
+        <div className='rounded-xl col-span-2 shadow-sm bg-[url(https://v1a4c4yut32jfys8.public.blob.vercel-storage.com/background.jpg)] bg-cover bg-center'>
           <div className='flex flex-col gap-4 py-10 justify-center items-center bg-surface/65 h-full'>
             <img
               className='rounded-full size-40'
@@ -51,7 +51,7 @@ export default function Home() {
         </Section>
 
         <Section>
-          <Headline>These are some skills that I can handle</Headline>
+          <Headline>Here is my skill set... so far</Headline>
           <Stack
             direction='horizontal'
             className='flex-wrap justify-center px-10 md:px-20 bg-secondary-container py-4 rounded-xl'

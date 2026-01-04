@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useFirestoreContext } from '@/lib/FirestoreContext'
+import { useFirestoreContext } from '@/context/FirestoreContext'
 import Dialog from '@/layers/Dialog'
 import Section from '@/layers/Section'
 import Stack from '@/layers/Stack'

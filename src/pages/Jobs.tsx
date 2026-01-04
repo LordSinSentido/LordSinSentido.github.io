@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useFirestoreContext } from '@/lib/FirestoreContext'
+import { useFirestoreContext } from '@/context/FirestoreContext'
 import Stack from '@/layers/Stack'
 import Section from '@/layers/Section'
 import Headline from '@/typography/Headline'
