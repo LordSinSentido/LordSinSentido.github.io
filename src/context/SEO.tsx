@@ -9,7 +9,7 @@ const SITE_URL = 'https://lordsinsentido.github.io/'
 const DEFAULT_TITLE = 'Miguel Sosa — Software Engineer'
 const DEFAULT_DESC = `With 3 years of experience, I worked along companies to provide 
   them backend and frontend solutions with my services as a software engineer. 
-  I'm specializing in REST API servers, microservices, and Jenkins pipelines`
+  I'm specializing in REST API servers, microservices, and Jenkins pipelines.`
 
 export default function SEO({ title, description }: SEOProps) {
   const finalTitle = title ? `${title} | ${DEFAULT_TITLE}` : DEFAULT_TITLE
