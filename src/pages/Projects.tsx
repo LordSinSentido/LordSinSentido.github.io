@@ -6,6 +6,7 @@ import Stack from '@/layers/Stack'
 import Title from '@/typography/Title'
 import Loading from '@/ui/Loading'
 import type { Project } from '@/schemas/projectSchema'
+import SEO from '@/context/SEO'
 
 export default function Projects() {
   const { projects, getProjects } = useFirestoreContext()
@@ -27,6 +28,10 @@ export default function Projects() {
   if (projects) {
     return (
       <>
+        <SEO
+          title='Projects'
+          description='Here you can see some of the projects where I worked on.'
+        />
         <Stack>
           <Title>Projects</Title>
           <Section>

@@ -4,13 +4,16 @@ import './index.css'
 import App from './App.tsx'
 import { BrowserRouter } from 'react-router-dom'
 import { FirestoreContext } from '@/context/FirestoreContext.tsx'
+import { HeadProvider } from 'react-head'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <FirestoreContext>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </FirestoreContext>
+    <HeadProvider>
+      <FirestoreContext>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </FirestoreContext>
+    </HeadProvider>
   </StrictMode>
 )
