@@ -7,6 +7,7 @@ import Navigation from '@/ui/Navigation'
 import Jobs from '@/pages/Jobs'
 import Projects from '@/pages/Projects'
 import Contact from '@/pages/Contact'
+import NotFound from './pages/NotFound'
 
 const PageTransition = ({ children }: { children: React.ReactNode }) => (
   <motion.div
@@ -29,7 +30,7 @@ function App() {
   return (
     <>
       <Navigation />
-      <main className='h-full max-w-480 pb-10 scrollbar-none scrollbar-hide p-4 mt-18'>
+      <main className='h-full max-w-480 pb-16 scrollbar-none scrollbar-hide p-4 mt-18'>
         <AnimatePresence mode='wait'>
           <Routes location={location} key={location.pathname}>
             <Route
@@ -61,6 +62,14 @@ function App() {
               element={
                 <PageTransition>
                   <Contact />
+                </PageTransition>
+              }
+            />
+            <Route
+              path='*'
+              element={
+                <PageTransition>
+                  <NotFound />
                 </PageTransition>
               }
             />

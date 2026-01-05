@@ -16,7 +16,7 @@ export default function Text({ children, className, size }: Text) {
     <p
       className={`font-sans ${
         size ? textSize[size] : 'text-base'
-      } font-base tracking-wide leading-tight hyphens-auto ${className}`}
+      } font-base tracking-wide leading-tight ${className}`}
       lang='en'
     >
       {children}
