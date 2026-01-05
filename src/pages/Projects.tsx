@@ -25,37 +25,39 @@ export default function Projects() {
     getProjects()
   }, [getProjects])
 
-  if (projects) {
-    return (
-      <>
-        <SEO
-          title='Projects'
-          description='Here you can see some of the projects where I worked on.'
-        />
-        <Stack>
-          <Title>Projects</Title>
-          <Section>
-            <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4'>
-              {projects.map((project) => (
-                <>
-                  <Dialog.ProjectCard
-                    project={project}
-                    open={false}
-                    handleDialog={() => handleDialog(project)}
-                  />
-                </>
-              ))}
-            </div>
-          </Section>
-        </Stack>
-        <Dialog.Dialog
-          project={openedProject ?? ({} as Project)}
-          open={open}
-          handleDialog={handleDialog}
-        />
-      </>
-    )
-  } else {
-    return <Loading />
-  }
+  return (
+    <>
+      <SEO
+        title='Projects'
+        description='Here you can see some of the projects where I worked on.'
+      />
+      {projects ? (
+        <>
+          <Stack>
+            <Title>Projects</Title>
+            <Section>
+              <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4'>
+                {projects.map((project) => (
+                  <>
+                    <Dialog.ProjectCard
+                      project={project}
+                      open={false}
+                      handleDialog={() => handleDialog(project)}
+                    />
+                  </>
+                ))}
+              </div>
+            </Section>
+          </Stack>
+          <Dialog.Dialog
+            project={openedProject ?? ({} as Project)}
+            open={open}
+            handleDialog={handleDialog}
+          />
+        </>
+      ) : (
+        <Loading />
+      )}
+    </>
+  )
 }

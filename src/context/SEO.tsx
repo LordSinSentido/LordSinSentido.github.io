@@ -19,6 +19,7 @@ export default function SEO({ title, description }: SEOProps) {
     <>
       <Title>{finalTitle}</Title>
       <Meta name='description' content={finalDescription} />
+      <Meta name='author' content='Miguel Sosa' />
       <Link rel='canonical' href={SITE_URL} />
 
       <Meta property='og:title' content={finalTitle} />

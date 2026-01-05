@@ -22,10 +22,10 @@ export default function Home() {
     getSkills()
   }, [getSkills])
 
-  if (information && skills) {
-    return (
-      <>
-        <SEO />
+  return (
+    <>
+      <SEO />
+      {information && skills ? (
         <Stack gap='16'>
           <div className='rounded-xl col-span-2 shadow-sm bg-[url(https://v1a4c4yut32jfys8.public.blob.vercel-storage.com/background.jpg)] bg-cover bg-center'>
             <div className='flex flex-col gap-4 py-10 justify-center items-center bg-surface/65 h-full'>
@@ -80,9 +80,9 @@ export default function Home() {
             />
           </Section>
         </Stack>
-      </>
-    )
-  } else {
-    return <Loading />
-  }
+      ) : (
+        <Loading />
+      )}
+    </>
+  )
 }
