@@ -11,6 +11,7 @@ import Section from '@/layers/Section'
 import Link from '@/ui/Link'
 import { Github, Linkedin } from 'lucide-react'
 import SEO from '@/context/SEO'
+import Loading from '@/ui/Loading'
 
 export default function Contact() {
   const { information, getInformation } = useFirestoreContext()
@@ -32,13 +33,13 @@ export default function Contact() {
     remote: 'Remote'
   }
 
-  if (information) {
-    return (
-      <>
-        <SEO
-          title='Contact me'
-          description='Here you can get ways to reach me out.'
-        />
+  return (
+    <>
+      <SEO
+        title='Contact me'
+        description='Here you can get ways to reach me out.'
+      />
+      {information ? (
         <Stack>
           <Title>Contact me</Title>
           <Stack gap='16'>
@@ -111,9 +112,9 @@ export default function Contact() {
             </Section>
           </Stack>
         </Stack>
-      </>
-    )
-  } else {
-    return <>Todavía nop</>
-  }
+      ) : (
+        <Loading />
+      )}
+    </>
+  )
 }

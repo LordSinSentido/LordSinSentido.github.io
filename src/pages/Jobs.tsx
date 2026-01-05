@@ -18,13 +18,13 @@ export default function Jobs() {
     getJobs()
   }, [getJobs])
 
-  if (jobs) {
-    return (
-      <>
-        <SEO
-          title='Jobs'
-          description='Here you can see the companies where I worked.'
-        />
+  return (
+    <>
+      <SEO
+        title='Jobs'
+        description='Here you can see the companies where I worked.'
+      />
+      {jobs ? (
         <Stack>
           <Title>Experience</Title>
           <Section>
@@ -51,9 +51,9 @@ export default function Jobs() {
             </Stack>
           </Section>
         </Stack>
-      </>
-    )
-  } else {
-    return <Loading />
-  }
+      ) : (
+        <Loading />
+      )}
+    </>
+  )
 }
