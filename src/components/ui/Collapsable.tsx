@@ -35,7 +35,7 @@ export default function Collapsable({
       transition={{ duration: animationDuration, ease: animationEase }}
     >
       <div
-        className={`flex items-center w-full ${
+        className={`flex items-center w-full gap-4 overflow-hidden ${
           disabled ? '' : 'cursor-pointer'
         }`}
         onClick={() => setOpen(disabled ? false : !open)}

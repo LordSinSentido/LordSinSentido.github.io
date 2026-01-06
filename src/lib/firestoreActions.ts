@@ -38,9 +38,10 @@ export const fetchJobs = async () => {
     console.log(`Getting user jobs`)
     const jobsCollection = collection(db, 'users', uid, 'jobs')
     const jobsDocuments = await getDocs(jobsCollection)
-    return jobsDocuments.docs.map(
+    const jobs = jobsDocuments.docs.map(
       (document) => ({ id: document.id, ...document.data() } as Job)
     )
+    return jobs.sort((a, b) => Number(b.startingYear) - Number(a.startingYear))
   } catch (error) {
     console.error(`Can't get jobs`)
     return null

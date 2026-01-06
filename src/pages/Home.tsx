@@ -27,11 +27,13 @@ export default function Home() {
       <SEO />
       {information && skills ? (
         <Stack gap='16'>
-          <div className='rounded-xl col-span-2 shadow-sm bg-[url(https://v1a4c4yut32jfys8.public.blob.vercel-storage.com/background.jpg)] bg-cover bg-center'>
+          <div
+            className={`rounded-xl col-span-2 shadow-sm bg-[url(${information.header})] bg-cover bg-center`}
+          >
             <div className='flex flex-col gap-4 py-10 justify-center items-center bg-surface/65 h-full'>
               <img
                 className='rounded-full size-40'
-                src='https://v1a4c4yut32jfys8.public.blob.vercel-storage.com/profile.jpeg'
+                src={information.avatar}
                 alt='Profile picture'
               />
               <Stack gap='1' className='items-center'>
@@ -43,10 +45,7 @@ export default function Home() {
             </div>
           </div>
 
-          <Quote>
-            Developing software isn’t just about writing code — it’s about
-            solving real problems and delivering value.
-          </Quote>
+          <Quote>{information.heading}</Quote>
 
           <Section className='flex flex-col gap-4'>
             <Headline>About me</Headline>
@@ -58,7 +57,7 @@ export default function Home() {
             <Stack
               direction='horizontal'
               className='flex-wrap justify-center px-10 md:px-20 bg-secondary-container py-4 rounded-xl'
-              gap='1'
+              gap='1.5'
             >
               {skills.map((skill) => (
                 <Badge title={skill.value} />
@@ -66,19 +65,12 @@ export default function Home() {
             </Stack>
           </Section>
 
-          <Section>
-            <Headline>My strengths are...</Headline>
-            <List
-              items={[
-                'Skilled in testing, maintaining, and troubleshooting complex codebases',
-                'Experienced in designing and implementing new features to enhance performance and user experience',
-                'Detail-oriented and committed to delivering high-quality, maintainable software',
-                'Continuously learning and applying new technologies to enhance my skills',
-                'Collaborative and adaptable, with experience working across international and cross-functional teams',
-                'Adaptable to new environments, tools and challenges'
-              ]}
-            />
-          </Section>
+          {information.strengths && (
+            <Section>
+              <Headline>My strengths are...</Headline>
+              <List items={information.strengths} />
+            </Section>
+          )}
         </Stack>
       ) : (
         <Loading />

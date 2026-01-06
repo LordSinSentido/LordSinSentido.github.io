@@ -42,7 +42,7 @@ export const ProjectCard = ({ project, open, handleDialog }: DialogProps) => {
             ))}
 
         {open && (
-          <Stack direction='horizontal' gap='1' className='flex-wrap'>
+          <Stack direction='horizontal' gap='1.5' className='flex-wrap'>
             {project.languages?.map((badge) => (
               <Badge
                 title={badge}
@@ -71,7 +71,11 @@ export const ProjectCard = ({ project, open, handleDialog }: DialogProps) => {
 
       {open && (
         <div className='absolute top-2 right-2 p-2'>
-          <Button onClick={handleDialog} aria-label='Cerrar diálogo'>
+          <Button
+            buttonType='primary'
+            onClick={handleDialog}
+            aria-label='Cerrar diálogo'
+          >
             <X className='h-5 w-5' />
           </Button>
         </div>
@@ -100,7 +104,7 @@ export const Dialog = ({ project, open, handleDialog }: DialogProps) => {
       <AnimatePresence>
         {open && (
           <motion.div
-            className='fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 max-w-lg w-[90vw] max-h-[90dvh] overflow-x-scroll scrollbar-none scrollbar-hide'
+            className='fixed shadow-xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 max-w-2xl w-[90vw] max-h-[90dvh] overflow-x-scroll scrollbar-none scrollbar-hide'
             initial='closed'
             animate='opened'
             exit='closed'

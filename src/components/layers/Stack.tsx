@@ -1,6 +1,6 @@
 type StackDirection = 'vertical' | 'horizontal'
 
-type gapValues = '0' | '1' | '2' | '3' | '4' | '8' | '16'
+type gapValues = '0' | '1' | '1.5' | '2' | '3' | '4' | '8' | '16'
 
 interface StackProps {
   children: React.ReactNode
@@ -18,6 +18,7 @@ export default function Stack({
   const gapValues: Record<gapValues, string> = {
     0: 'gap-0',
     1: 'gap-1',
+    1.5: 'gap-1.5',
     2: 'gap-2',
     3: 'gap-3',
     4: 'gap-4',
