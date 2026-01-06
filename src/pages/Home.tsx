@@ -28,7 +28,8 @@ export default function Home() {
       {information && skills ? (
         <Stack gap='16'>
           <div
-            className={`rounded-xl col-span-2 shadow-sm bg-[url(${information.header})] bg-cover bg-center`}
+            className={`rounded-xl col-span-2 shadow-sm bg-cover bg-center`}
+            style={{ backgroundImage: `url(${information.header})` }}
           >
             <div className='flex flex-col gap-4 py-10 justify-center items-center bg-surface/65 h-full'>
               <img
