@@ -45,30 +45,20 @@ export default function Contact() {
           <Stack gap='16'>
             <Section>
               <Headline>Reach me out</Headline>
-              <Stack
-                direction='horizontal'
-                gap='4'
-                className='items-center bg-secondary-container text-on-secondary-container p-4 rounded-xl'
-              >
-                <Bubble
-                  animate
-                  color={
-                    information.availability ? 'bg-green-500' : 'bg-red-500'
-                  }
-                  quantity={4}
-                />
-                <Text>
-                  {information.availability ? (
-                    <>
-                      Looking for a Software Engineer? You’re in luck! I’m
-                      currently exploring new opportunities — don’t hesitate to
-                      get in touch.
-                    </>
-                  ) : (
-                    <>Nope, I'm not available right now</>
-                  )}
-                </Text>
-              </Stack>
+              {information.availability && (
+                <Stack
+                  direction='horizontal'
+                  gap='4'
+                  className='items-center bg-secondary-container text-on-secondary-container p-4 rounded-xl'
+                >
+                  <Bubble animate color='bg-green-500' quantity={4} />
+                  <Text>
+                    Looking for a Software Engineer? You’re in luck! I’m
+                    currently exploring new opportunities — don’t hesitate to
+                    get in touch.
+                  </Text>
+                </Stack>
+              )}
 
               <Text>You can do it through these platforms</Text>
               <Stack direction='horizontal'>
