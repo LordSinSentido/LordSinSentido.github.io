@@ -14,6 +14,21 @@ import SEO from '@/context/SEO'
 export default function Jobs() {
   const { jobs, getJobs } = useFirestoreContext()
 
+  const getMonth: Record<string, string> = {
+    '01': 'Jan',
+    '02': 'Feb',
+    '03': 'Mar',
+    '04': 'Apr',
+    '05': 'May',
+    '06': 'Jun',
+    '07': 'Jul',
+    '08': 'Aug',
+    '09': 'Sep',
+    '10': 'Oct',
+    '11': 'Nov',
+    '12': 'Dec'
+  }
+
   useEffect(() => {
     getJobs()
   }, [getJobs])
@@ -33,11 +48,20 @@ export default function Jobs() {
                 <Collapsable
                   key={job.id}
                   header={
-                    <Stack gap='1'>
-                      <Headline>
-                        {job.position} @ {job.organization}
-                      </Headline>
-                      <Subheadline>{job.location}</Subheadline>
+                    <Stack gap='1' className='sm:flex-row sm:gap-4'>
+                      <Stack className='justify-end flex-1' gap='1'>
+                        <Headline>{job.position}</Headline>
+                        <Subheadline>{job.organization}</Subheadline>
+                      </Stack>
+                      <Stack className='sm:justify-end sm:items-end' gap='1'>
+                        <Subheadline>{job.location}</Subheadline>
+                        <Subheadline>
+                          {getMonth[job.startingMonth]}/{job.startingYear} —{' '}
+                          {job.current
+                            ? 'Current'
+                            : `${getMonth[job.endingMonth]}/${job.endingYear}`}
+                        </Subheadline>
+                      </Stack>
                     </Stack>
                   }
                   content={
