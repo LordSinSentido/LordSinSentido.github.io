@@ -9,6 +9,7 @@ import Section from '@/layers/Section'
 import Text from '@/typography/Text'
 import Headline from '@/typography/Headline'
 import SEO from '@/context/SEO'
+import { MapPinHouse } from 'lucide-react'
 
 export default function Home() {
   const { information, getInformation, skills, getSkills } =
@@ -42,6 +43,10 @@ export default function Home() {
                 <h2 className='font-sans text-2xl font-extralight tracking-wide uppercase '>
                   {information.degree}
                 </h2>
+                <Badge
+                  icon={<MapPinHouse size='20' />}
+                  title={information.hometown}
+                />
               </Stack>
             </div>
           </div>

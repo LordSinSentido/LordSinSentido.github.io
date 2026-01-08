@@ -3,6 +3,7 @@ import { z } from 'zod'
 export const informationSchema = z.object({
   degree: z.string(),
   description: z.string(),
+  hometown: z.string(),
   heading: z.string(),
   avatar: z.string(),
   header: z.string(),
