@@ -12,6 +12,8 @@ import Link from '@/ui/Link'
 import { Github, Linkedin } from 'lucide-react'
 import SEO from '@/context/SEO'
 import Loading from '@/ui/Loading'
+import Badge from '@/components/ui/Badge'
+import Subheadline from '@/components/typography/Subheadline'
 
 export default function Contact() {
   const { information, getInformation } = useFirestoreContext()
@@ -20,14 +22,14 @@ export default function Contact() {
     getInformation()
   }, [getInformation])
 
-  const modalityMap: Record<Modality, string> = {
+  const typeMap: Record<Type, string> = {
     'full-time': 'Full-time',
     'part-time': 'Part-time',
     contract: 'Contract',
     freelance: 'Freelance'
   }
 
-  const typeMap: Record<Type, string> = {
+  const modalityMap: Record<Modality, string> = {
     'on-site': 'On-site',
     hybrid: 'Hybrid',
     remote: 'Remote'
@@ -60,7 +62,7 @@ export default function Contact() {
                 </Stack>
               )}
 
-              <Text>You can do it through these platforms</Text>
+              <Text>You can do it through these platforms:</Text>
               <Stack direction='horizontal'>
                 <Link href='https://www.linkedin.com/in/misosa/'>
                   <Linkedin className='size-4' />
@@ -75,29 +77,30 @@ export default function Contact() {
 
             <Section>
               <Headline>Interests</Headline>
-              <div className='grid grid-cols-1 gap-2 sm:gap-0'>
-                {information.type && (
-                  <div className='flex sm:flex-row flex-col'>
-                    <Text className='grow'>Type of work</Text>
-                    <Text>
-                      {information.type
-                        .map((modality) => modalityMap[modality as Modality])
-                        .join(' / ')}
-                    </Text>
-                  </div>
+              <Stack direction='horizontal'>
+                {information.modality && (
+                  <Stack gap='2'>
+                    <Subheadline>Work modality</Subheadline>
+                    <Stack direction='horizontal' gap='1.5'>
+                      {information.modality.map((modality) => (
+                        <Badge title={modalityMap[modality as Modality]} />
+                      ))}
+                    </Stack>
+                  </Stack>
                 )}
 
-                {information.modality && (
-                  <div className='flex sm:flex-row flex-col'>
-                    <Text className='grow'>Work modality</Text>
-                    <Text>
-                      {information.modality
-                        .map((type) => typeMap[type as Type])
-                        .join(' / ')}
-                    </Text>
-                  </div>
+                {information.type && (
+                  <Stack gap='2'>
+                    <Subheadline>Type of work</Subheadline>
+                    <Stack direction='horizontal' gap='1.5'>
+                      {information.type.map((type) => (
+                        <Badge title={typeMap[type as Type]} />
+                      ))}
+                    </Stack>
+                  </Stack>
                 )}
-              </div>
+              </Stack>
+
               {information.interests && <List items={information.interests} />}
             </Section>
           </Stack>
