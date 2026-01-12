@@ -3,13 +3,10 @@ import Headline from '@/typography/Headline'
 import Text from '@/typography/Text'
 import Title from '@/typography/Title'
 import Bubble from '@/ui/Bubble'
-import List from '@/ui/List'
 import {
   animationDuration,
   animationEase,
-  type EmailStatus,
-  type Modality,
-  type Type
+  type EmailStatus
 } from '@/lib/constants'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useFirestoreContext } from '@/context/FirestoreContext'
@@ -19,8 +16,6 @@ import Link from '@/ui/Link'
 import { Github, Linkedin } from 'lucide-react'
 import SEO from '@/context/SEO'
 import Loading from '@/ui/Loading'
-import Badge from '@/components/ui/Badge'
-import Subheadline from '@/components/typography/Subheadline'
 import Card from '@/components/layers/Card'
 import Button from '@/components/ui/Button'
 import { AreaInput, TextInput } from '@/components/ui/Inputs'
