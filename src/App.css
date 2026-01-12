@@ -130,6 +130,10 @@
   --color-surface-container: var(--color-surface-container);
   --color-surface-container-high: var(--color-surface-container-high);
   --color-surface-container-highest: var(--color-surface-container-highest);
+  --color-error: var(--color-error);
+  --color-on-error: var(--color-on-error);
+  --color-error-container: var(--color-error);
+  --color-on-error-container: var(--color-on-error);
   --font-sans: "Lexend Deca", sans-serif;
   --font-cursive: "Playwrite MX", cursive;
 }

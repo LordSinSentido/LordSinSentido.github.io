@@ -10,6 +10,8 @@ import Text from '@/typography/Text'
 import Headline from '@/typography/Headline'
 import SEO from '@/context/SEO'
 import { MapPinHouse } from 'lucide-react'
+import Subheadline from '@/components/typography/Subheadline'
+import { modalityMap, typeMap, type Type, type Modality } from '@/lib/constants'
 
 export default function Home() {
   const { information, getInformation, skills, getSkills } =
@@ -69,6 +71,35 @@ export default function Home() {
                 <Badge title={skill.value} />
               ))}
             </Stack>
+          </Section>
+
+          <Section>
+            <Headline>Interests</Headline>
+            <Stack direction='horizontal'>
+              {information.modality && (
+                <Stack gap='2'>
+                  <Subheadline>Work modality</Subheadline>
+                  <Stack direction='horizontal' gap='1.5'>
+                    {information.modality.map((modality) => (
+                      <Badge title={modalityMap[modality as Modality]} />
+                    ))}
+                  </Stack>
+                </Stack>
+              )}
+
+              {information.type && (
+                <Stack gap='2'>
+                  <Subheadline>Type of work</Subheadline>
+                  <Stack direction='horizontal' gap='1.5'>
+                    {information.type.map((type) => (
+                      <Badge title={typeMap[type as Type]} />
+                    ))}
+                  </Stack>
+                </Stack>
+              )}
+            </Stack>
+
+            {information.interests && <List items={information.interests} />}
           </Section>
 
           {information.strengths && (
