@@ -7,7 +7,7 @@ type ButtonType = 'primary' | 'secondary'
 
 interface ButtonProps {
   buttonType?: ButtonType
-  onClick: () => void
+  onClick?: () => void
   children: React.ReactNode
   className?: string
 }
