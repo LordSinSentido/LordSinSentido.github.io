@@ -1,4 +1,8 @@
-type StackDirection = 'vertical' | 'horizontal'
+type StackDirection =
+  | 'vertical'
+  | 'vertical-reverse'
+  | 'horizontal'
+  | 'horizontal-reverse'
 
 type gapValues = '0' | '1' | '1.5' | '2' | '3' | '4' | '8' | '16'
 
@@ -15,6 +19,13 @@ export default function Stack({
   gap,
   className
 }: StackProps) {
+  const directionMap: Record<StackDirection, string> = {
+    horizontal: 'flex-row',
+    'horizontal-reverse': 'flex-row-reverse',
+    vertical: 'flex-col',
+    'vertical-reverse': 'flex-col-reverse'
+  }
+
   const gapValues: Record<gapValues, string> = {
     0: 'gap-0',
     1: 'gap-1',
@@ -31,7 +42,7 @@ export default function Stack({
       className={`flex ${
         direction == undefined || direction === 'vertical'
           ? 'flex-col'
-          : 'flex-row'
+          : directionMap[direction]
       } ${gap == undefined ? 'gap-4' : gapValues[gap]} ${className}`}
     >
       {children}
