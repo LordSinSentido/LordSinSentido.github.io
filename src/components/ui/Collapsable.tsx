@@ -23,8 +23,8 @@ export default function Collapsable({
       initial='closed'
       variants={{
         opened: {
-          backgroundColor: 'var(--color-secondary-container',
-          color: 'var(-on-secondary-container)'
+          backgroundColor: 'var(--color-secondary-container)',
+          color: 'var(--color-on-secondary-container)'
         },
         closed: {
           backgroundColor: 'var(--color-surface-container)',

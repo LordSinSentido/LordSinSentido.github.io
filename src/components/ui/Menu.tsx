@@ -1,5 +1,3 @@
-import { animationDuration, animationEase } from '@/lib/constants'
-import { motion } from 'motion/react'
 import type { ReactNode } from 'react'
 
 interface MenuProps {
@@ -8,12 +6,8 @@ interface MenuProps {
 
 export default function Menu({ children }: MenuProps) {
   return (
-    <motion.ul
-      whileHover={{ boxShadow: 'var(--shadow-lg)' }}
-      transition={{ ease: animationEase, duration: animationDuration }}
-      className='flex p-2 gap-2'
-    >
+    <menu className='flex p-2 gap-2 rounded-xl bg-surface-container-highest shadow-md'>
       {children}
-    </motion.ul>
+    </menu>
   )
 }

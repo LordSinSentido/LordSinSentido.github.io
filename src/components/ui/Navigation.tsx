@@ -22,8 +22,7 @@ export default function Navigation() {
         down: { height: 0, opacity: 0 }
       }}
       className='fixed top-4 right-4 left-4 z-20 
-      flex justify-between max-w-2xl mx-auto
-      [&>ul]:rounded-xl [&>ul]:bg-surface-container-highest'
+      flex justify-between max-w-2xl mx-auto'
     >
       <Menu>
         <MenuItem title='Home' icon={<Home />} href='/' />

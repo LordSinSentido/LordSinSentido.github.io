@@ -11,6 +11,7 @@ export default function Bubble({ color, quantity, animate }: BubbleProps) {
     <div className='relative size-4 flex-none'>
       {Array.from({ length: quantity ?? 4 }).map((_, index, values) => (
         <motion.div
+          key={`Bubble #${index}`}
           className={`w-full h-full absolute top-0 left-0 ${
             color ?? 'bg-primary'
           } rounded-full`}

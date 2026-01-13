@@ -40,6 +40,7 @@ export default function Projects() {
                 {projects.map((project) => (
                   <>
                     <Dialog.ProjectCard
+                      key={project.id}
                       project={project}
                       open={false}
                       handleDialog={() => handleDialog(project)}
