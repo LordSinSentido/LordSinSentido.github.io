@@ -1,6 +1,11 @@
 import { motion } from 'motion/react'
 
-import { buttonBase, buttonPrimary, buttonSecondary } from '@/ui/ButtonClasses'
+import {
+  buttonBase,
+  buttonDisabled,
+  buttonPrimary,
+  buttonSecondary
+} from '@/ui/ButtonClasses'
 import { animationDuration, animationEase } from '@/lib/constants'
 
 type ButtonType = 'primary' | 'secondary'
@@ -10,18 +15,30 @@ interface ButtonProps {
   onClick?: () => void
   children: React.ReactNode
   className?: string
+  disabled?: boolean
 }
 
 export default function Button({
   children = 'Button',
   buttonType = 'secondary',
   onClick,
-  className
+  className,
+  disabled
 }: ButtonProps) {
   const buttonStyles: Record<ButtonType, string> = {
     primary: buttonPrimary,
     secondary: buttonSecondary
   }
+
+  if (disabled)
+    return (
+      <button
+        disabled={true}
+        className={`${buttonBase} ${buttonDisabled} ${className}`}
+      >
+        {children}
+      </button>
+    )
 
   return (
     <motion.button
