@@ -34,6 +34,22 @@ const transition = {
   ease: animationEase
 }
 
+const ErrorCard = ({ error }: { error: string }) => (
+  <motion.div
+    initial={{ opacity: 0, height: 0 }}
+    animate={{ opacity: 1, height: 'auto' }}
+    exit={{ opacity: 0, height: 0 }}
+    transition={transition}
+  >
+    <Text
+      size='xs'
+      className='p-2 pt-4 -mt-2 z-0 rounded-b-lg bg-error text-on-error'
+    >
+      {error}
+    </Text>
+  </motion.div>
+)
+
 export function TextInput({
   title,
   type,
@@ -57,23 +73,7 @@ export function TextInput({
         placeholder={placeholder ?? ''}
         {...register}
       />
-      <AnimatePresence>
-        {error && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={transition}
-          >
-            <Text
-              size='xs'
-              className='p-2 pt-4 -mt-2 z-0 rounded-b-lg bg-error text-on-error'
-            >
-              {error}
-            </Text>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <AnimatePresence>{error && <ErrorCard error={error} />}</AnimatePresence>
     </Stack>
   )
 }
@@ -92,30 +92,14 @@ export function AreaInput({
         </Text>
       )}
       <motion.textarea
-        className='font-sans p-2 rounded-lg z-1'
+        className='font-sans p-2 rounded-lg z-1 resize-none h-25'
         initial={initialStyle}
         whileFocus={whileStyle}
         transition={transition}
         placeholder={placeholder ?? ''}
         {...register}
       />
-      <AnimatePresence>
-        {error && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={transition}
-          >
-            <Text
-              size='xs'
-              className='p-2 pt-4 -mt-2 z-0 rounded-b-lg bg-error text-on-error'
-            >
-              {error}
-            </Text>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <AnimatePresence>{error && <ErrorCard error={error} />}</AnimatePresence>
     </Stack>
   )
 }
